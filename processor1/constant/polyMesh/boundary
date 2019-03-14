@@ -1,0 +1,93 @@
+/*--------------------------------*- C++ -*----------------------------------*\
+| =========                 |                                                 |
+| \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox           |
+|  \\    /   O peration     | Version:  v1812                                 |
+|   \\  /    A nd           | Web:      www.OpenFOAM.com                      |
+|    \\/     M anipulation  |                                                 |
+\*---------------------------------------------------------------------------*/
+FoamFile
+{
+    version     2.0;
+    format      binary;
+    class       polyBoundaryMesh;
+    arch        "LSB;label=64;scalar=64";
+    location    "constant/polyMesh";
+    object      boundary;
+}
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+
+10
+(
+    inletCH4
+    {
+        type            patch;
+        nFaces          0;
+        startFace       5058;
+    }
+    wallOutside
+    {
+        type            wall;
+        inGroups        1(wall);
+        nFaces          70;
+        startFace       5058;
+    }
+    wallTube
+    {
+        type            wall;
+        inGroups        1(wall);
+        nFaces          0;
+        startFace       5128;
+    }
+    inletPilot
+    {
+        type            patch;
+        nFaces          0;
+        startFace       5128;
+    }
+    inletAir
+    {
+        type            patch;
+        nFaces          40;
+        startFace       5128;
+    }
+    outlet
+    {
+        type            patch;
+        nFaces          32;
+        startFace       5168;
+    }
+    axis
+    {
+        type            empty;
+        inGroups        1(empty);
+        nFaces          0;
+        startFace       5200;
+    }
+    frontAndBack_pos
+    {
+        type            wedge;
+        inGroups        1(wedge);
+        nFaces          2584;
+        startFace       5200;
+    }
+    frontAndBack_neg
+    {
+        type            wedge;
+        inGroups        1(wedge);
+        nFaces          2584;
+        startFace       7784;
+    }
+    procBoundary1to0
+    {
+        type            processor;
+        inGroups        1(processor);
+        nFaces          78;
+        startFace       10368;
+        matchTolerance  0.0001;
+        transform       unknown;
+        myProcNo        1;
+        neighbProcNo    0;
+    }
+)
+
+// ************************************************************************* //
